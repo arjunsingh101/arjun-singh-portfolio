@@ -13,13 +13,19 @@ const experiences = [
     role: "Software Development Engineer",
     company: "HDFC LIFE",
     period: "OCT 2022 - NOV 2023",
-    description: "Developed award-winning campaigns for Fortune 500 clients using WebGL and GSAP.",
+    description: "Spearheaded the creation of a cutting-edge retirement technology product. Utilized a modern tech stack that included Next.js,ReactJs,Material-UI (MUI), TypeScript, and Context API.",
   },
   {
-    role: "Junior Web Developer",
-    company: "Startup Inc.",
-    period: "2018 - 2020",
-    description: "Full-stack development with React and Node.js, focusing on internal dashboard tools.",
+    role: "Frontend Developer",
+    company: "Brown Bunny Healthtech Private Limited",
+    period: "SEP 2021 - SEP 2022",
+    description: "Led the development of a sophisticated web portal catering to doctors and hospital officials. Utilized a robust tech stack comprising ReactJS, NextJs, TypeScript, Material-UI (MUI), and Redux.",
+  },
+  {
+    role: "Web Developer",
+    company: "Globtier Infotech Private Limited",
+    period: "JAN 2020 - AUG 2021",
+    description: "Worked on multiple web portal for client mahindra & mahindra Limited.",
   },
 ];
 

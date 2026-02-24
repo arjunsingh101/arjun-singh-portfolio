@@ -43,7 +43,7 @@ export default function Navbar() {
             </motion.a>
           ))}
           <motion.a
-            href="/resume.pdf"
+            href="/Arjun-Singh-Senior-Frontend-Engineer-6-Years-Experience.pdf"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
@@ -82,7 +82,7 @@ export default function Navbar() {
               </a>
             ))}
              <a
-                href="/resume.pdf"
+                href="/Arjun-Singh-Senior-Frontend-Engineer-6-Years-Experience.pdf"
                 className="text-lg font-medium text-primary hover:text-white"
                 onClick={() => setIsOpen(false)}
               >

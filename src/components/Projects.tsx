@@ -5,12 +5,21 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
+    title: "SM REits Landing Page",
+    description: "A New Era of Real Estate Investments in India.",
+    tags: ["Next.Js", "React.Js", "Javascript"],
+    image: "/sm-reits.png", 
+    link: "https://hbits.co",
+    github: "",
+    color: "from-green-500 to-emerald-500"
+  },
+  {
     title: "Zark News Android App",
     description: "A news aggregation mobile application built for Android platforms.",
     tags: ["React Native", "Javascript"],
     image: "/project1.jpg", 
-    link: "#",
-    github: "#",
+    link: "",
+    github: "",
     color: "from-green-500 to-emerald-500"
   },
   {
@@ -18,8 +27,8 @@ const projects = [
     description: "A personal portfolio website designed for an institute to showcase curriculum and events.",
     tags: ["React.js", "Javascript"],
     image: "/project2.jpg",
-    link: "#",
-    github: "#",
+    link: "",
+    github: "",
     color: "from-blue-500 to-indigo-500"
   },
   {
@@ -27,8 +36,8 @@ const projects = [
     description: "A full-stack e-commerce platform for selling books with inventory management.",
     tags: ["PHP", "MySQL"],
     image: "/project3.jpg",
-    link: "#",
-    github: "#",
+    link: "",
+    github: "",
     color: "from-orange-500 to-red-500"
   }
 ];
@@ -83,12 +92,16 @@ export default function Projects() {
                 <p className="mb-6 text-zinc-400">{project.description}</p>
                 
                 <div className="flex items-center gap-4">
-                  <a href={project.link} className="flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-primary">
-                    <ExternalLink size={16} /> Live Demo
-                  </a>
-                  <a href={project.github} className="flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-primary">
-                    <Github size={16} /> Code
-                  </a>
+                  {project.link && (
+                    <a href={project.link} className="flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-primary">
+                      <ExternalLink size={16} /> Live Demo
+                    </a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} className="flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-primary">
+                      <Github size={16} /> Code
+                    </a>
+                  )}
                 </div>
               </div>
 

@@ -42,15 +42,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section 
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-      className="relative z-10 flex h-screen flex-col items-center justify-center px-6 pt-20 text-center overflow-hidden cursor-none"
-    >
-      {/* Custom Cursor Dot */}
+    <>
+      {/* Custom Cursor Dot — rendered outside overflow-hidden so it isn't clipped */}
       <motion.div
-        className="pointer-events-none fixed z-50 h-3 w-3 rounded-full bg-primary shadow-[0_0_15px_rgba(79,70,229,0.8)]"
+        className="pointer-events-none fixed z-[9999] h-3 w-3 rounded-full bg-primary shadow-[0_0_15px_rgba(79,70,229,0.8)]"
         animate={{
           x: mousePos.x - 6,
           y: mousePos.y - 6,
@@ -59,6 +54,13 @@ export default function Hero() {
         }}
         transition={{ type: "spring", damping: 25, stiffness: 250, mass: 0.5 }}
       />
+
+    <section 
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+      className="relative z-10 flex h-screen flex-col items-center justify-center px-6 pt-20 text-center overflow-hidden cursor-none"
+    >
 
       {/* Interactive Ripples (Water-like) */}
       <AnimatePresence>
@@ -111,13 +113,13 @@ export default function Hero() {
           
           <div className="flex gap-4">
              {/* Social Links */}
-             <a href="#" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
+             <a href="https://github.com/arjunsingh101" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
                 <Github className="h-6 w-6" />
              </a>
-             <a href="#" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
+             <a href="https://www.linkedin.com/in/arjun-singh-frontend-developer/" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
                 <Linkedin className="h-6 w-6" />
              </a>
-             <a href="#" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
+             <a href="mailto:mailonarjunsingh@gmail.com" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
                 <Mail className="h-6 w-6" />
              </a>
           </div>
@@ -137,5 +139,6 @@ export default function Hero() {
         </div>
       </motion.div>
     </section>
+    </>
   );
 }
