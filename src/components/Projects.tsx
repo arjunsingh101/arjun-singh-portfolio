@@ -25,7 +25,7 @@ const projects = [
     color: "from-green-500 to-emerald-500",
   },
   {
-    title: "Premium Tours and Travel Website;",
+    title: "Premium Tours and Travel Website",
     description:
       "Custom domestic and international itineraries for luxury escapes | bold adventures | family vacations | cruises | honeymoons and corporate travel.",
     tags: ["Nextjs", "ReactJs", "NodeJs"],

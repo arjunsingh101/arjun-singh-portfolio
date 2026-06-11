@@ -81,13 +81,13 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-             <a
-                href="/Arjun-Singh-Senior-Frontend-Engineer-6-Years-Experience.pdf"
-                className="text-lg font-medium text-primary hover:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                Resume
-              </a>
+            <a
+              href="/Arjun_Singh_Senior_Software_Engineer_6_Years.pdf"
+              className="text-lg font-medium text-primary hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Resume
+            </a>
           </div>
         </motion.div>
       )}
