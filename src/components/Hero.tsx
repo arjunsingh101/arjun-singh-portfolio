@@ -19,7 +19,7 @@ export default function Hero() {
   useEffect(() => {
     const handleGlobalMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
-      
+
       // Only show cursor if it's over the hero section (roughly)
       // or just show it everywhere if we want global.
       // Let's show it only when x/y is within a reasonable range or based on section ref
@@ -33,11 +33,11 @@ export default function Hero() {
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e;
     const now = Date.now();
-    
+
     // Add a new ripple
     setRipples((prev) => [
       ...prev.slice(-30), // Increased history for a longer trail
-      { id: now, x: clientX, y: clientY }
+      { id: now, x: clientX, y: clientY },
     ]);
   }, []);
 
@@ -55,90 +55,102 @@ export default function Hero() {
         transition={{ type: "spring", damping: 25, stiffness: 250, mass: 0.5 }}
       />
 
-    <section 
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-      className="relative z-10 flex h-screen flex-col items-center justify-center px-6 pt-20 text-center overflow-hidden cursor-none"
-    >
-
-      {/* Interactive Ripples (Water-like) */}
-      <AnimatePresence>
-        {ripples.map((ripple) => (
-          <motion.div
-            key={ripple.id}
-            initial={{ scale: 0.2, opacity: 0.8 }}
-            animate={{ scale: 12, opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            onAnimationComplete={() => {
-              setRipples((prev) => prev.filter((r) => r.id !== ripple.id));
-            }}
-            className="pointer-events-none absolute h-10 w-10 rounded-full border border-primary/30"
-            style={{
-              left: ripple.x - 20,
-              top: ripple.y - 20,
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
-              boxShadow: "0 0 20px rgba(79, 70, 229, 0.1) inset"
-            }}
-          />
-        ))}
-      </AnimatePresence>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-20 max-w-4xl"
+      <section
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
+        className="relative z-10 flex h-screen flex-col items-center justify-center px-6 pt-20 text-center overflow-hidden cursor-none"
       >
-        <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-accent drop-shadow-md">
-          Senior Frontend Engineer
-        </h2>
-        <h1 className="mb-6 text-6xl font-bold tracking-tight text-white drop-shadow-2xl sm:text-7xl md:text-8xl">
-          Arjun Singh
-        </h1>
-        <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-zinc-100 drop-shadow-xl md:text-xl">
-          Crafting immersive digital experiences with high-performance code and
-          stunning visuals. Specializing in React, Next.js, and 3D interactions.
-        </p>
+        {/* Interactive Ripples (Water-like) */}
+        <AnimatePresence>
+          {ripples.map((ripple) => (
+            <motion.div
+              key={ripple.id}
+              initial={{ scale: 0.2, opacity: 0.8 }}
+              animate={{ scale: 12, opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              onAnimationComplete={() => {
+                setRipples((prev) => prev.filter((r) => r.id !== ripple.id));
+              }}
+              className="pointer-events-none absolute h-10 w-10 rounded-full border border-primary/30"
+              style={{
+                left: ripple.x - 20,
+                top: ripple.y - 20,
+                background:
+                  "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+                boxShadow: "0 0 20px rgba(79, 70, 229, 0.1) inset",
+              }}
+            />
+          ))}
+        </AnimatePresence>
 
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
-          <a
-            href="#projects"
-            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-primary px-8 font-medium text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-primary/40"
-          >
-            <span className="mr-2">View Projects</span>
-            <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
-          </a>
-          
-          <div className="flex gap-4">
-             {/* Social Links */}
-             <a href="https://github.com/arjunsingh101" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-20 max-w-4xl"
+        >
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white drop-shadow-md">
+            Senior Software Engineer
+          </h2>
+          <h1 className="mb-6 text-6xl font-bold tracking-tight text-white drop-shadow-2xl sm:text-7xl md:text-8xl">
+            Arjun Singh
+          </h1>
+          <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-zinc-100 drop-shadow-xl md:text-xl">
+            Crafting immersive digital experiences with high-performance code
+            and stunning visuals. Specializing in React, Next.js, and 3D
+            interactions.
+          </p>
+
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
+            <a
+              href="#projects"
+              className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-primary px-8 font-medium text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-primary/40"
+            >
+              <span className="mr-2">View Projects</span>
+              <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
+            </a>
+
+            <div className="flex gap-4">
+              {/* Social Links */}
+              <a
+                href="https://github.com/arjunsingh101"
+                className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md"
+              >
                 <Github className="h-6 w-6" />
-             </a>
-             <a href="https://www.linkedin.com/in/arjun-singh-frontend-developer/" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
+              </a>
+              <a
+                href="https://www.linkedin.com/in/arjun-singh-frontend-developer/"
+                className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md"
+              >
                 <Linkedin className="h-6 w-6" />
-             </a>
-             <a href="mailto:mailonarjunsingh@gmail.com" className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md">
+              </a>
+              <a
+                href="mailto:mailonarjunsingh@gmail.com"
+                className="p-3 text-zinc-300 transition-colors hover:text-white hover:bg-white/10 rounded-full hover:shadow-lg hover:shadow-white/5 drop-shadow-md"
+              >
                 <Mail className="h-6 w-6" />
-             </a>
+              </a>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-2">
-            <span className="text-xs uppercase tracking-widest text-muted">Scroll</span>
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-xs uppercase tracking-widest text-muted">
+              Scroll
+            </span>
             <div className="h-12 w-[1px] bg-gradient-to-b from-muted to-transparent"></div>
-        </div>
-      </motion.div>
-    </section>
+          </div>
+        </motion.div>
+      </section>
     </>
   );
 }
